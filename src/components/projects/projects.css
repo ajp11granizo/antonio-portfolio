@@ -1,0 +1,58 @@
+.projects {
+  display: flex; /* Usamos flexbox */
+  flex-direction: column; /* Título y cuadrícula en columna */
+  align-items: center; /* Centra horizontalmente */
+  justify-content: center; /* Centra verticalmente */
+  height: 100%; /* Ocupa toda la altura */
+  padding: 2rem;
+  box-sizing: border-box; /* Padding incluido en el tamaño */
+  text-align: center; /* Centra el texto */
+}
+
+.projects h2 {
+  text-align: center; /* Título centrado */
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Cuadrícula adaptable */
+  gap: 1rem; /* Espacio entre las tarjetas */
+  justify-content: center; /* Centra las columnas */
+  width: 100%; /* Ocupa todo el ancho */
+  max-width: 1200px; /* Limita el ancho máximo */
+}
+
+.project-card {
+  background-color: #FF6F3C; /* Fondo naranja */
+  color: #FFFFFF; /* Texto blanco */
+  padding: 0.5rem;
+  border-radius: 5px;
+  text-align: center;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+  transition: transform 0.2s ease, box-shadow 0.2s ease; /* Animación al pasar el mouse */
+}
+
+.project-card:hover {
+  transform: translateY(-5px); /* Eleva ligeramente la tarjeta */
+  box-shadow: 0px 8px 12px rgba(255, 111, 60, 0.5); /* Sombra animada */
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+  .projects-grid {
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); /* Reduce el tamaño mínimo */
+  }
+}
+
+@media (max-width: 480px) {
+  .projects-grid {
+    grid-template-columns: repeat(2, 1fr); /* Dos columnas en pantallas pequeñas */
+  }
+
+  .project-card {
+    font-size: 0.8rem; /* Texto más pequeño en pantallas pequeñas */
+    padding: 0.3rem; /* Reduce el espacio interno */
+  }
+}

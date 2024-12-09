@@ -1,0 +1,71 @@
+.hero {
+  position: relative;
+  background: linear-gradient(135deg, #2b4f81, #1e3a5f); /* Degradado */
+  color: var(--text-color);
+  padding: 2rem;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: left;
+  width: 50%; /* Ahora ocupa la mitad exacta */
+  float: left; /* Se alinea al lado izquierdo */
+  box-sizing: border-box;
+}
+
+.hero::before,
+.hero::after {
+  content: '';
+  position: absolute;
+  border-radius: 50%; /* Círculos decorativos */
+  background: rgba(255, 255, 255, 0.1); /* Transparente */
+  z-index: 0;
+}
+
+.hero::before {
+  width: 150px;
+  height: 150px;
+  top: 20%;
+  left: 10%;
+}
+
+.hero::after {
+  width: 200px;
+  height: 200px;
+  bottom: 15%;
+  right: 5%;
+}
+
+.hero h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: var(--text-color);
+  text-shadow: 2px 4px 6px rgba(0, 0, 0, 0.4); /* Sombra en el texto */
+  animation: fadeIn 2s ease-in-out; /* Animación de entrada */
+}
+
+.hero p {
+  font-size: 1.2rem;
+  text-shadow: 1px 2px 4px rgba(0, 0, 0, 0.3);
+  animation: fadeIn 3s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@media (max-width: 480px) {
+  .hero h1 {
+    font-size: 2rem; /* Reduce el tamaño del título en pantallas pequeñas */
+  }
+
+  .hero p {
+    font-size: 1rem; /* Reduce el tamaño del texto en pantallas pequeñas */
+  }
+}

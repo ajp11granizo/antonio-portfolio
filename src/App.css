@@ -1,38 +1,43 @@
-.App {
-  text-align: center;
+@import './styles/variables.css';
+
+.app {
+  display: flex; /* Asegura que los elementos estén lado a lado */
+  height: 100vh; /* Ocupa toda la altura de la pantalla */
+
+  margin: 0; /* Elimina cualquier espacio adicional */
+  background-color: var(--light-beige);
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.left-section, .right-section {
+  height: 100%; /* Ocupa toda la altura */
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+.left-section {
+  flex: 1; /* Ocupa la mitad del ancho */
+}
+
+.right-section {
+  flex: 1; /* Ocupa la mitad restante */
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+  .app {
+    flex-direction: column; /* Cambia a disposición en columna */
+  }
+
+  .projects-grid {
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); /* Reduce el tamaño mínimo */
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+@media (max-width: 480px) {
+  .projects-grid {
+    grid-template-columns: repeat(2, 1fr); /* Dos columnas en pantallas pequeñas */
   }
-  to {
-    transform: rotate(360deg);
+
+  .project-card {
+    font-size: 0.8rem; /* Texto más pequeño en pantallas pequeñas */
+    padding: 0.3rem; /* Reduce el espacio interno */
   }
 }
